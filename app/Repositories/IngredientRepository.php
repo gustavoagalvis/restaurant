@@ -30,7 +30,7 @@ class IngredientRepository extends Repository {
                 return $this->model->find($repositoryId)->dishes;
             }
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
 
@@ -48,7 +48,7 @@ class IngredientRepository extends Repository {
                return $this->model->find($repositoryId)->allergens; 
             }
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
 }

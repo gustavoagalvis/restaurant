@@ -49,7 +49,7 @@ abstract class Repository implements RepositoryInterface {
         try {
             return $this->model->findOrFail($id);
         } catch (\Exception $e) {
-            null;
+            return $e->getMessage();
         }
     }
 
@@ -58,7 +58,7 @@ abstract class Repository implements RepositoryInterface {
         try {
             return $this->model->create($data->all());
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
 
@@ -66,7 +66,7 @@ abstract class Repository implements RepositoryInterface {
         try {
             return $this->model->where($attribute, '=', $id)->update($data);
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
 
@@ -82,7 +82,7 @@ abstract class Repository implements RepositoryInterface {
         try {
             return $this->model->findOrFail($id, $columns);
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
  

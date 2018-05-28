@@ -11,7 +11,7 @@ class DishRepository extends Repository {
         return 'App\Models\Dish';
     }
 
-    function getIngredients($repositoryId)
+    function getIngredients($repositoryId, $relationId)
     {
         try {
             if (!is_null($relationId)) {
@@ -20,7 +20,7 @@ class DishRepository extends Repository {
                 return $this->model->find($repositoryId)->ingredients;
             }
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
 
@@ -45,7 +45,7 @@ class DishRepository extends Repository {
             return $allergens;
 
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
 }
